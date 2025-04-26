@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" class="dark"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torn Modular Bot - User Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for better readability in both modes */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Light mode code block */
+        code {
+            background-color: #e5e7eb; /* bg-gray-200 */
+            color: #1f2937; /* text-gray-800 */
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+        /* Dark mode code block */
+        .dark code {
+            background-color: #374151; /* dark:bg-gray-700 */
+            color: #f3f4f6; /* dark:text-gray-100 */
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        h1 { font-size: 1.875rem; margin-top: 1.5rem; } /* 3xl */
+        h2 { font-size: 1.5rem; margin-top: 1.25rem; } /* 2xl */
+        h3 { font-size: 1.25rem; margin-top: 1rem; } /* xl */
+
+        ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        /* Light mode link */
+        a {
+            color: #2563eb; /* text-blue-600 */
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #1d4ed8; /* hover:text-blue-700 */
+        }
+        /* Dark mode link */
+        .dark a {
+            color: #60a5fa; /* dark:text-blue-400 */
+        }
+        .dark a:hover {
+            color: #93c5fd; /* dark:hover:text-blue-300 */
+        }
+
+        /* Light mode command section */
+        .command-section {
+             background-color: #f9fafb; /* bg-gray-50 */
+             padding: 1rem;
+             border-radius: 0.5rem;
+             margin-bottom: 1rem;
+             border: 1px solid #e5e7eb; /* border-gray-200 */
+        }
+        /* Dark mode command section */
+        .dark .command-section {
+             background-color: #1f2937; /* dark:bg-gray-800 */
+             border: 1px solid #4b5563; /* dark:border-gray-600 */
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 p-4 md:p-8 transition-colors duration-300">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 p-6 md:p-10 rounded-lg shadow-md">
+
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 mb-6">Torn Modular Bot - User Guide</h1>
+
+        <p class="mb-6 text-gray-600 dark:text-gray-400">This guide explains how to use the Torn Modular Bot and its various features within your Discord server.</p>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 border-b border-gray-200 dark:border-gray-700 pb-1 mb-4">For All Users</h2>
+            <p class="mb-4 text-gray-600 dark:text-gray-400">These commands are available to everyone in the server where the bot is active.</p>
+
+            <div class="command-section">
+                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">1. Adding Your API Key</h3>
+                <p class="my-2 text-gray-600 dark:text-gray-300">The bot needs your Torn API key to fetch your data for verification, travel monitoring, and other features. Your key is stored securely (encrypted).</p>
+                <ul class="text-gray-600 dark:text-gray-300">
+                    <li><strong>Command:</strong> <code>/mykey add</code></li>
+                    <li><strong>Action:</strong> Opens a pop-up form (modal) where you can securely paste your 16-character Torn API key.</li>
+                    <li><strong>How to get a key:</strong> Create one on Torn: <a href="https://www.torn.com/preferences.php#tab=api" target="_blank" rel="noopener noreferrer">https://www.torn.com/preferences.php#tab=api</a> (Requires enabling <code>Public status</code>, <code>Profile information</code>, and <code>Faction tree</code> access for full functionality).</li>
+                    <li><strong>Note:</strong> You only need to do this once per server where you use the bot.</li>
+                </ul>
+            </div>
+
+            <div class="command-section">
+                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">2. Removing Your API Key</h3>
+                <p class="my-2 text-gray-600 dark:text-gray-300">If you no longer want the bot to use your key in this specific server:</p>
+                <ul class="text-gray-600 dark:text-gray-300">
+                    <li><strong>Command:</strong> <code>/mykey remove</code></li>
+                    <li><strong>Action:</strong> Removes your stored API key for this server from the bot's database.</li>
+                </ul>
+            </div>
+
+            <div class="command-section">
+                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">3. Verifying Your Torn Account</h3>
+                <p class="my-2 text-gray-600 dark:text-gray-300">Verification links your Discord account to your Torn account within the bot, enabling features like automatic nickname updates and role assignments based on your Torn faction.</p>
+                <ul class="text-gray-600 dark:text-gray-300">
+                    <li><strong>Prerequisite:</strong> Ensure your Discord account is linked on your Torn profile: <a href="https://www.torn.com/discord" target="_blank" rel="noopener noreferrer">https://www.torn.com/discord</a></li>
+                    <li><strong>Command:</strong> <code>/verify</code></li>
+                    <li><strong>Action:</strong> The bot checks the Torn API using your Discord ID to find your linked Torn account. If successful, it updates your verification status in the database and may update your nickname and roles according to server settings.</li>
+                </ul>
+            </div>
+
+             <div class="command-section">
+                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">4. Re-verifying Your Account</h3>
+                <p class="my-2 text-gray-600 dark:text-gray-300">If your Torn name, faction, or linked Discord account changes, you might need to re-verify.</p>
+                <ul class="text-gray-600 dark:text-gray-300">
+                    <li><strong>Command:</strong> <code>/reverify</code></li>
+                    <li><strong>Action:</strong> Re-runs the verification check using your Discord ID.</li>
+                </ul>
+            </div>
+
+            <div class="command-section">
+                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">5. Setting Up DM Travel Alerts</h3>
+                <p class="my-2 text-gray-600 dark:text-gray-300">Get Direct Messages when specific monitored players or faction members travel to or arrive from certain countries.</p>
+                <ul class="text-gray-600 dark:text-gray-300">
+                    <li><strong>Command:</strong> <code>/dmalert</code></li>
+                    <li><strong>Action:</strong> Opens an interactive menu:
+                        <ol class="list-decimal ml-6 mt-2">
+                            <li><strong>Select Source:</strong> Choose the Faction or individually Monitored Player you want alerts for.</li>
+                            <li><strong>Select Countries:</strong> Choose the specific destination countries you care about, or select "Monitor ALL Countries".</li>
+                            <li><strong>Save/Update:</strong> Saves your preferences for the selected source.</li>
+                            <li><strong>Remove Alert:</strong> Removes the DM alert setting for the currently selected source.</li>
+                            <li><strong>Cancel:</strong> Closes the menu without saving changes.</li>
+                        </ol>
+                    </li>
+                    <li><strong>Note:</strong> You can configure different country settings for each monitored faction or player.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 border-b border-gray-200 dark:border-gray-700 pb-1 mb-4">For Server Administrators (and Bot Owner)</h2>
+            <p class="mb-4 text-gray-600 dark:text-gray-400">These commands require Administrator permissions in the Discord server (or being the Bot Owner).</p>
+
+            <div class="command-section">
+                 <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-3">Managing Monitored Factions</h3>
+                 <ul class="text-gray-600 dark:text-gray-300">
+                    <li><strong>Add Faction:</strong> <code>/faction add</code> - Opens a pop-up to enter the Torn Faction ID to start monitoring.</li>
+                    <li><strong>Remove Faction:</strong> <code>/faction remove [faction: Faction ID or Name]</code> - Stops monitoring the specified faction and cleans up related settings.</li>
+                    <li><strong>List Factions:</strong> <code>/faction list</code> - Shows all monitored factions and their configured notification settings.</li>
+                    <li><strong>Configure Faction Settings:</strong> <code>/faction settings [faction: Faction ID or Name]</code> - Opens a menu to configure Hospital Notifications, Revive List, Travel Notifications/List, and Hospital List settings (channel/role) for the selected faction.</li>
+                 </ul>
+            </div>
+
+             <div class="command-section">
+                 <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-3">Managing Monitored Players (Individual)</h3>
+                 <ul class="text-gray-600 dark:text-gray-300">
+                    <li><strong>Add Player:</strong> <code>/player add [player_id: Torn Player ID]</code> - Starts monitoring an individual player.</li>
+                    <li><strong>Remove Player:</strong> <code>/player remove [player_id: Torn Player ID]</code> - Stops monitoring an individual player.</li>
+                    <li><strong>List Players:</strong> <code>/player list</code> - Shows all individually monitored players.</li>
+                    <li><strong>Set Player Channel:</strong> <code>/player set_channel [player: Player ID or Name]</code> - Sets a specific notification channel for an individual player (overrides faction settings).</li>
+                 </ul>
+            </div>
+
+            <div class="command-section">
+                 <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-3">Managing Verification Roles</h3>
+                 <ul class="text-gray-600 dark:text-gray-300">
+                    <li><strong>Add Faction Role:</strong> <code>/factionrole add [faction_id: Torn Faction ID] [role: Discord Role]</code> - Maps a Faction ID to a Discord role for auto-assignment.</li>
+                    <li><strong>Remove Faction Role:</strong> <code>/factionrole remove [faction_id: Faction ID (optional)] [role: Discord Role (optional)]</code> - Removes a mapping (specify ID or Role).</li>
+                    <li><strong>List Faction Roles:</strong> <code>/factionrole list</code> - Shows current Faction ID -> Role mappings.</li>
+                 </ul>
+            </div>
+
+            <div class="command-section">
+                 <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-3">Managing Global Settings</h3>
+                 <ul class="text-gray-600 dark:text-gray-300">
+                    <li><strong>Toggle Features:</strong>
+                        <ul class="list-disc ml-6 mt-1">
+                            <li><code>/settings toggle_hospital [enabled: True/False]</code></li>
+                            <li><code>/settings toggle_revive_list [enabled: True/False]</code></li>
+                            <li><code>/settings toggle_travel [enabled: True/False]</code></li>
+                        </ul>
+                    </li>
+                    <li><strong>Set Hospital Ping Times:</strong> <code>/settings set_hospital_ping_times</code> - Opens pop-up to set notification times (minutes before exit).</li>
+                    <li><strong>Set Travel Check Interval:</strong> <code>/settings set_travel_interval [interval: Seconds]</code> - Sets API check frequency (min 30s).</li>
+                    <li><strong>Set Travel Message Auto-Delete:</strong> <code>/settings set_travel_message_delay [minutes: 0-60]</code> - Sets delay before travel notifications are deleted (0=disable).</li>
+                    <li><strong>Show All Settings:</strong> <code>/settings show</code> - Displays a summary of global settings.</li>
+                 </ul>
+            </div>
+
+            <div class="command-section">
+                 <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-3">Admin Verification Tools</h3>
+                 <ul class="text-gray-600 dark:text-gray-300">
+                    <li><strong>Verify All Members:</strong> <code>/verifyall</code> - Checks all server members, verifies linked accounts, updates details, and cleans up stale entries.</li>
+                    <li><strong>Re-verify Member (Context Menu):</strong> Right-click user -> Apps -> Reverify Torn User - Forces a re-check for one user.</li>
+                 </ul>
+            </div>
+
+            <div class="command-section">
+                 <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-3">Payment Status</h3>
+                 <ul class="text-gray-600 dark:text-gray-300">
+                    <li><strong>Check Status:</strong> <code>/payment status</code> - Shows server subscription status and expiry.</li>
+                    <li><strong>View History:</strong> <code>/payment history</code> - Shows recent payment/override history.</li>
+                 </ul>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 dark:text-gray-400 text-sm mt-8 pt-4 border-t border-gray-200 dark:border-gray-700">
+            If you encounter issues or have questions, please contact the server administrators or the bot owner.
+        </footer>
+
+    </div>
+</body>
+</html>
