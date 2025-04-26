@@ -1,94 +1,174 @@
 <!DOCTYPE html>
-<html lang="en" class="dark"> <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torn Modular Bot - User Guide</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for better readability in both modes */
+        /* Base Styles */
         body {
             font-family: 'Inter', sans-serif;
+            margin: 0; /* Remove default margin */
+            padding: 1rem; /* Add padding */
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
         }
-        /* Light mode code block */
-        code {
-            background-color: #e5e7eb; /* bg-gray-200 */
-            color: #1f2937; /* text-gray-800 */
-            padding: 0.125rem 0.25rem;
-            border-radius: 0.25rem;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9em;
+        .container {
+            max-width: 896px; /* Corresponds to max-w-4xl */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 1.5rem; /* Corresponds to p-6 */
+            border-radius: 0.5rem; /* Corresponds to rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
         }
-        /* Dark mode code block */
-        .dark code {
-            background-color: #374151; /* dark:bg-gray-700 */
-            color: #f3f4f6; /* dark:text-gray-100 */
+        @media (min-width: 768px) { /* md breakpoint */
+             body { padding: 2rem; }
+             .container { padding: 2.5rem; } /* Corresponds to md:p-10 */
         }
 
+        /* Headings */
         h1, h2, h3 {
-            font-weight: 600;
+            font-weight: 600; /* Semi-bold */
             margin-bottom: 0.5rem;
         }
-        h1 { font-size: 1.875rem; margin-top: 1.5rem; } /* 3xl */
-        h2 { font-size: 1.5rem; margin-top: 1.25rem; } /* 2xl */
-        h3 { font-size: 1.25rem; margin-top: 1rem; } /* xl */
+        h1 {
+            font-size: 1.875rem; /* 3xl */
+            margin-top: 1.5rem;
+            border-bottom-width: 1px;
+            padding-bottom: 0.5rem; /* pb-2 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        h2 {
+            font-size: 1.5rem; /* 2xl */
+            margin-top: 1.25rem;
+            border-bottom-width: 1px;
+            padding-bottom: 0.25rem; /* pb-1 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+        h3 {
+            font-size: 1.25rem; /* xl */
+            margin-top: 1rem;
+        }
 
+        /* Paragraphs */
+        p {
+            margin-bottom: 1rem; /* mb-4 or mb-6 */
+        }
+        .intro-p {
+             margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        /* Lists */
         ul {
             list-style-type: disc;
             margin-left: 1.5rem;
             margin-bottom: 1rem;
         }
+        ol {
+            list-style-type: decimal;
+            margin-left: 1.5rem;
+            margin-top: 0.5rem; /* mt-2 */
+            margin-bottom: 1rem;
+        }
         li {
             margin-bottom: 0.5rem;
         }
-        /* Light mode link */
-        a {
-            color: #2563eb; /* text-blue-600 */
-            text-decoration: underline;
-        }
-        a:hover {
-            color: #1d4ed8; /* hover:text-blue-700 */
-        }
-        /* Dark mode link */
-        .dark a {
-            color: #60a5fa; /* dark:text-blue-400 */
-        }
-        .dark a:hover {
-            color: #93c5fd; /* dark:hover:text-blue-300 */
+
+        /* Code blocks */
+        code {
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
         }
 
-        /* Light mode command section */
+        /* Command Sections */
         .command-section {
-             background-color: #f9fafb; /* bg-gray-50 */
              padding: 1rem;
              border-radius: 0.5rem;
              margin-bottom: 1rem;
-             border: 1px solid #e5e7eb; /* border-gray-200 */
+             border-width: 1px;
         }
-        /* Dark mode command section */
-        .dark .command-section {
-             background-color: #1f2937; /* dark:bg-gray-800 */
-             border: 1px solid #4b5563; /* dark:border-gray-600 */
+        .command-section h3 {
+            margin-bottom: 0.75rem; /* mb-3 */
         }
+        .command-section p {
+             margin-top: 0.5rem; /* my-2 */
+             margin-bottom: 0.5rem; /* my-2 */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            font-size: 0.875rem; /* text-sm */
+            margin-top: 2rem; /* mt-8 */
+            padding-top: 1rem; /* pt-4 */
+            border-top-width: 1px;
+        }
+
+        /* --- Dark Mode Styles --- */
+        body {
+            background-color: #111827; /* bg-gray-900 */
+            color: #d1d5db; /* text-gray-300 */
+        }
+        .container {
+            background-color: #1f2937; /* bg-gray-800 */
+        }
+        h1, h2, h3 {
+             color: #ffffff; /* text-white / text-gray-100 */
+        }
+        h1, h2, footer {
+             border-color: #4b5563; /* border-gray-700 */
+        }
+        p {
+             color: #9ca3af; /* text-gray-400 */
+        }
+        ul, ol, li {
+             color: #d1d5db; /* text-gray-300 */
+        }
+        code {
+            background-color: #374151; /* bg-gray-700 */
+            color: #f3f4f6; /* text-gray-100 */
+        }
+        a {
+            color: #60a5fa; /* text-blue-400 */
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #93c5fd; /* hover:text-blue-300 */
+        }
+        .command-section {
+             background-color: #1f2937; /* bg-gray-800 */
+             border-color: #4b5563; /* border-gray-600 */
+        }
+        .command-section h3 {
+             color: #f3f4f6; /* text-gray-200 */
+        }
+        .command-section p, .command-section ul, .command-section li {
+             color: #d1d5db; /* text-gray-300 */
+        }
+        footer {
+             color: #6b7280; /* text-gray-500 */
+             border-color: #374151; /* border-gray-700 */
+        }
+
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 p-4 md:p-8 transition-colors duration-300">
-    <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 p-6 md:p-10 rounded-lg shadow-md">
+<body> <div class="container"> <h1>Torn Modular Bot - User Guide</h1>
 
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2 mb-6">Torn Modular Bot - User Guide</h1>
+        <p class="intro-p">This guide explains how to use the Torn Modular Bot and its various features within your Discord server.</p>
 
-        <p class="mb-6 text-gray-600 dark:text-gray-400">This guide explains how to use the Torn Modular Bot and its various features within your Discord server.</p>
-
-        <section class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 border-b border-gray-200 dark:border-gray-700 pb-1 mb-4">For All Users</h2>
-            <p class="mb-4 text-gray-600 dark:text-gray-400">These commands are available to everyone in the server where the bot is active.</p>
+        <section>
+            <h2>For All Users</h2>
+            <p>These commands are available to everyone in the server where the bot is active.</p>
 
             <div class="command-section">
-                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">1. Adding Your API Key</h3>
-                <p class="my-2 text-gray-600 dark:text-gray-300">The bot needs your Torn API key to fetch your data for verification, travel monitoring, and other features. Your key is stored securely (encrypted).</p>
-                <ul class="text-gray-600 dark:text-gray-300">
+                <h3>1. Adding Your API Key</h3>
+                <p>The bot needs your Torn API key to fetch your data for verification, travel monitoring, and other features. Your key is stored securely (encrypted).</p>
+                <ul>
                     <li><strong>Command:</strong> <code>/mykey add</code></li>
                     <li><strong>Action:</strong> Opens a pop-up form (modal) where you can securely paste your 16-character Torn API key.</li>
                     <li><strong>How to get a key:</strong> Create one on Torn: <a href="https://www.torn.com/preferences.php#tab=api" target="_blank" rel="noopener noreferrer">https://www.torn.com/preferences.php#tab=api</a> (Requires enabling <code>Public status</code>, <code>Profile information</code>, and <code>Faction tree</code> access for full functionality).</li>
@@ -97,18 +177,18 @@
             </div>
 
             <div class="command-section">
-                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">2. Removing Your API Key</h3>
-                <p class="my-2 text-gray-600 dark:text-gray-300">If you no longer want the bot to use your key in this specific server:</p>
-                <ul class="text-gray-600 dark:text-gray-300">
+                <h3>2. Removing Your API Key</h3>
+                <p>If you no longer want the bot to use your key in this specific server:</p>
+                <ul>
                     <li><strong>Command:</strong> <code>/mykey remove</code></li>
                     <li><strong>Action:</strong> Removes your stored API key for this server from the bot's database.</li>
                 </ul>
             </div>
 
             <div class="command-section">
-                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">3. Verifying Your Torn Account</h3>
-                <p class="my-2 text-gray-600 dark:text-gray-300">Verification links your Discord account to your Torn account within the bot, enabling features like automatic nickname updates and role assignments based on your Torn faction.</p>
-                <ul class="text-gray-600 dark:text-gray-300">
+                <h3>3. Verifying Your Torn Account</h3>
+                <p>Verification links your Discord account to your Torn account within the bot, enabling features like automatic nickname updates and role assignments based on your Torn faction.</p>
+                <ul>
                     <li><strong>Prerequisite:</strong> Ensure your Discord account is linked on your Torn profile: <a href="https://www.torn.com/discord" target="_blank" rel="noopener noreferrer">https://www.torn.com/discord</a></li>
                     <li><strong>Command:</strong> <code>/verify</code></li>
                     <li><strong>Action:</strong> The bot checks the Torn API using your Discord ID to find your linked Torn account. If successful, it updates your verification status in the database and may update your nickname and roles according to server settings.</li>
@@ -116,21 +196,21 @@
             </div>
 
              <div class="command-section">
-                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">4. Re-verifying Your Account</h3>
-                <p class="my-2 text-gray-600 dark:text-gray-300">If your Torn name, faction, or linked Discord account changes, you might need to re-verify.</p>
-                <ul class="text-gray-600 dark:text-gray-300">
+                <h3>4. Re-verifying Your Account</h3>
+                <p>If your Torn name, faction, or linked Discord account changes, you might need to re-verify.</p>
+                <ul>
                     <li><strong>Command:</strong> <code>/reverify</code></li>
                     <li><strong>Action:</strong> Re-runs the verification check using your Discord ID.</li>
                 </ul>
             </div>
 
             <div class="command-section">
-                <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200">5. Setting Up DM Travel Alerts</h3>
-                <p class="my-2 text-gray-600 dark:text-gray-300">Get Direct Messages when specific monitored players or faction members travel to or arrive from certain countries.</p>
-                <ul class="text-gray-600 dark:text-gray-300">
+                <h3>5. Setting Up DM Travel Alerts</h3>
+                <p>Get Direct Messages when specific monitored players or faction members travel to or arrive from certain countries.</p>
+                <ul>
                     <li><strong>Command:</strong> <code>/dmalert</code></li>
                     <li><strong>Action:</strong> Opens an interactive menu:
-                        <ol class="list-decimal ml-6 mt-2">
+                        <ol>
                             <li><strong>Select Source:</strong> Choose the Faction or individually Monitored Player you want alerts for.</li>
                             <li><strong>Select Countries:</strong> Choose the specific destination countries you care about, or select "Monitor ALL Countries".</li>
                             <li><strong>Save/Update:</strong> Saves your preferences for the selected source.</li>
@@ -143,13 +223,13 @@
             </div>
         </section>
 
-        <section class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 border-b border-gray-200 dark:border-gray-700 pb-1 mb-4">For Server Administrators (and Bot Owner)</h2>
-            <p class="mb-4 text-gray-600 dark:text-gray-400">These commands require Administrator permissions in the Discord server (or being the Bot Owner).</p>
+        <section>
+            <h2>For Server Administrators (and Bot Owner)</h2>
+            <p>These commands require Administrator permissions in the Discord server (or being the Bot Owner).</p>
 
             <div class="command-section">
-                 <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-3">Managing Monitored Factions</h3>
-                 <ul class="text-gray-600 dark:text-gray-300">
+                 <h3>Managing Monitored Factions</h3>
+                 <ul>
                     <li><strong>Add Faction:</strong> <code>/faction add</code> - Opens a pop-up to enter the Torn Faction ID to start monitoring.</li>
                     <li><strong>Remove Faction:</strong> <code>/faction remove [faction: Faction ID or Name]</code> - Stops monitoring the specified faction and cleans up related settings.</li>
                     <li><strong>List Factions:</strong> <code>/faction list</code> - Shows all monitored factions and their configured notification settings.</li>
@@ -158,8 +238,8 @@
             </div>
 
              <div class="command-section">
-                 <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-3">Managing Monitored Players (Individual)</h3>
-                 <ul class="text-gray-600 dark:text-gray-300">
+                 <h3>Managing Monitored Players (Individual)</h3>
+                 <ul>
                     <li><strong>Add Player:</strong> <code>/player add [player_id: Torn Player ID]</code> - Starts monitoring an individual player.</li>
                     <li><strong>Remove Player:</strong> <code>/player remove [player_id: Torn Player ID]</code> - Stops monitoring an individual player.</li>
                     <li><strong>List Players:</strong> <code>/player list</code> - Shows all individually monitored players.</li>
@@ -168,8 +248,8 @@
             </div>
 
             <div class="command-section">
-                 <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-3">Managing Verification Roles</h3>
-                 <ul class="text-gray-600 dark:text-gray-300">
+                 <h3>Managing Verification Roles</h3>
+                 <ul>
                     <li><strong>Add Faction Role:</strong> <code>/factionrole add [faction_id: Torn Faction ID] [role: Discord Role]</code> - Maps a Faction ID to a Discord role for auto-assignment.</li>
                     <li><strong>Remove Faction Role:</strong> <code>/factionrole remove [faction_id: Faction ID (optional)] [role: Discord Role (optional)]</code> - Removes a mapping (specify ID or Role).</li>
                     <li><strong>List Faction Roles:</strong> <code>/factionrole list</code> - Shows current Faction ID -> Role mappings.</li>
@@ -177,8 +257,8 @@
             </div>
 
             <div class="command-section">
-                 <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-3">Managing Global Settings</h3>
-                 <ul class="text-gray-600 dark:text-gray-300">
+                 <h3>Managing Global Settings</h3>
+                 <ul>
                     <li><strong>Toggle Features:</strong>
                         <ul class="list-disc ml-6 mt-1">
                             <li><code>/settings toggle_hospital [enabled: True/False]</code></li>
@@ -194,23 +274,23 @@
             </div>
 
             <div class="command-section">
-                 <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-3">Admin Verification Tools</h3>
-                 <ul class="text-gray-600 dark:text-gray-300">
+                 <h3>Admin Verification Tools</h3>
+                 <ul>
                     <li><strong>Verify All Members:</strong> <code>/verifyall</code> - Checks all server members, verifies linked accounts, updates details, and cleans up stale entries.</li>
                     <li><strong>Re-verify Member (Context Menu):</strong> Right-click user -> Apps -> Reverify Torn User - Forces a re-check for one user.</li>
                  </ul>
             </div>
 
             <div class="command-section">
-                 <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-3">Payment Status</h3>
-                 <ul class="text-gray-600 dark:text-gray-300">
+                 <h3>Payment Status</h3>
+                 <ul>
                     <li><strong>Check Status:</strong> <code>/payment status</code> - Shows server subscription status and expiry.</li>
                     <li><strong>View History:</strong> <code>/payment history</code> - Shows recent payment/override history.</li>
                  </ul>
             </div>
         </section>
 
-        <footer class="text-center text-gray-500 dark:text-gray-400 text-sm mt-8 pt-4 border-t border-gray-200 dark:border-gray-700">
+        <footer>
             If you encounter issues or have questions, please contact the server administrators or the bot owner.
         </footer>
 
