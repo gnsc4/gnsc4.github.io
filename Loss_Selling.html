@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loss Selling Cog - User Guide (Dark Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font if loaded */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styles for dark mode */
+        code {
+            /* Darker background, lighter text for code blocks */
+            background-color: #374151; /* Tailwind gray-700 */
+            color: #d1d5db; /* Tailwind gray-300 */
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            border-radius: 0.25rem; /* Tailwind rounded-sm */
+            font-family: monospace;
+        }
+        a {
+            /* Lighter blue for links in dark mode */
+            color: #60a5fa; /* Tailwind blue-400 */
+            text-decoration: underline;
+        }
+        a:hover {
+            /* Slightly lighter blue on hover */
+            color: #93c5fd; /* Tailwind blue-300 */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 p-4 md:p-8 text-gray-300"> <div class="max-w-4xl mx-auto bg-gray-800 p-6 md:p-10 rounded-lg shadow-md border border-gray-700"> <h1 class="text-3xl font-bold text-gray-100 mb-6 border-b border-gray-600 pb-4">Loss Selling Cog - User Guide</h1> <p class="mb-6 text-gray-400">This guide explains how to get started and use the loss selling features of the bot.</p> <section class="mb-8 p-6 bg-gray-700 rounded-lg border border-gray-600"> <h2 class="text-2xl font-semibold text-gray-100 mb-4">1. Verification</h2> <p class="mb-4 text-gray-400">Before using most bot features, including loss selling, you need to be verified. This links your Discord account to your Torn account.</p>
+            <p class="mb-4 text-gray-400">Verification might happen automatically when you join the server if you've linked your Discord account on Torn. If not, or if you need to reverify, follow these steps:</p>
+            <ol class="list-decimal list-inside space-y-2 text-gray-400 mb-4">
+                <li>Go to the official Torn Discord server invite link: <a href="https://torn.com/discord" target="_blank" rel="noopener noreferrer">torn.com/discord</a></li>
+                <li>Join the official Torn Discord server if you haven't already.</li>
+                <li>In any channel on the official Torn Discord server, type the command: <code>!verify</code></li>
+                <li>Follow the instructions provided by the Torn bot there to link your account.</li>
+                <li>Return to the Discord server where you want to use this bot.</li>
+                <li>Type the command: <code>/verify</code></li>
+            </ol>
+            <p class="text-gray-400">The bot should confirm your verification and update your nickname and roles if configured.</p>
+        </section>
+
+        <section class="mb-8 p-6 bg-gray-700 rounded-lg border border-gray-600">
+            <h2 class="text-2xl font-semibold text-gray-100 mb-4">2. Add Your API Key</h2>
+            <p class="mb-4 text-gray-400">To participate in loss selling (and allow the bot to verify your attacks), you need to provide your Torn API key. This key needs **Limited Access** or greater permissions.</p>
+            <ol class="list-decimal list-inside space-y-2 text-gray-400 mb-4">
+                <li>Go to your Torn API Key management page: <a href="https://www.torn.com/preferences.php#tab=api" target="_blank" rel="noopener noreferrer">Torn API Preferences</a></li>
+                <li>Create a new key if you don't have one suitable. Ensure it has at least "Limited Access".</li>
+                <li>Copy the 16-character alphanumeric key.</li>
+                <li>In this Discord server, use the command: <code>/key add</code></li>
+                <li>A pop-up window (modal) will appear. Paste your API key into the input field and submit.</li>
+            </ol>
+            <p class="text-gray-400">The bot will confirm if the key was added successfully. Your key is stored securely (encrypted) and is only used for necessary checks like verifying your attacks for contracts.</p>
+            <p class="mt-2 text-sm text-gray-500">You can remove your key anytime using <code>/key remove</code>.</p> </section>
+
+        <section class="p-6 bg-gray-700 rounded-lg border border-gray-600">
+            <h2 class="text-2xl font-semibold text-gray-100 mb-4">3. Using Loss Selling Features</h2>
+            <p class="mb-4 text-gray-400">Once verified and your API key is added, you can interact with loss selling contracts:</p>
+            <ul class="space-y-4 text-gray-400">
+                <li>
+                    <strong class="text-gray-200">List Available Contracts:</strong> <p class="ml-4">To see which contracts are currently active and available for you to join, use the command:</p>
+                    <p class="ml-4 mt-1"><code>/contract list</code></p>
+                </li>
+                <li>
+                    <strong class="text-gray-200">Join a Contract:</strong>
+                    <p class="ml-4">If you see a contract you want to participate in from the list, use its ID to join:</p>
+                    <p class="ml-4 mt-1"><code>/contract join contract_id:&lt;ID&gt;</code> (Replace <code>&lt;ID&gt;</code> with the actual contract number)</p>
+                    <p class="ml-4 mt-1 text-sm text-gray-500">This will usually grant you access to a private channel for that specific contract.</p>
+                </li>
+                <li>
+                    <strong class="text-gray-200">Claim Losses:</strong>
+                    <p class="ml-4">After performing losses against the target for a contract you've joined, claim them so they can be verified:</p>
+                    <p class="ml-4 mt-1"><code>/contract claim contract_id:&lt;ID&gt; losses_claimed:&lt;Number&gt;</code> (Replace <code>&lt;ID&gt;</code> and <code>&lt;Number&gt;</code>)</p>
+                    <p class="ml-4 mt-1 text-sm text-gray-500">The bot will check if you have enough energy for the claimed losses based on your API key.</p>
+                </li>
+                 <li>
+                    <strong class="text-gray-200">Check Your Balance/Status:</strong>
+                    <p class="ml-4">To see your progress, verified losses, and payment balance across all contracts you've participated in within this server, use:</p>
+                    <p class="ml-4 mt-1"><code>/contract balance</code></p>
+                 </li>
+                 <li>
+                    <strong class="text-gray-200">Check Contract Status:</strong>
+                    <p class="ml-4">To view the current details and participant list for a specific contract (even if you haven't joined), use:</p>
+                    <p class="ml-4 mt-1"><code>/contract status contract_id:&lt;ID&gt;</code> (Replace <code>&lt;ID&gt;</code>)</p>
+                 </li>
+            </ul>
+        </section>
+
+    </div>
+</body>
+</html>
