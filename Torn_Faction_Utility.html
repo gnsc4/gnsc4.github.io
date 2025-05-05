@@ -3,297 +3,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torn Modular Bot - User Guide</title>
-    <style>
-        /* Base Styles */
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0; /* Remove default margin */
-            padding: 1rem; /* Add padding */
-            box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .container {
-            max-width: 896px; /* Corresponds to max-w-4xl */
-            margin-left: auto;
-            margin-right: auto;
-            padding: 1.5rem; /* Corresponds to p-6 */
-            border-radius: 0.5rem; /* Corresponds to rounded-lg */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-        }
-        @media (min-width: 768px) { /* md breakpoint */
-             body { padding: 2rem; }
-             .container { padding: 2.5rem; } /* Corresponds to md:p-10 */
-        }
-
-        /* Headings */
-        h1, h2, h3 {
-            font-weight: 600; /* Semi-bold */
-            margin-bottom: 0.5rem;
-        }
-        h1 {
-            font-size: 1.875rem; /* 3xl */
-            margin-top: 1.5rem;
-            border-bottom-width: 1px;
-            padding-bottom: 0.5rem; /* pb-2 */
-            margin-bottom: 1.5rem; /* mb-6 */
-        }
-        h2 {
-            font-size: 1.5rem; /* 2xl */
-            margin-top: 1.25rem;
-            border-bottom-width: 1px;
-            padding-bottom: 0.25rem; /* pb-1 */
-            margin-bottom: 1rem; /* mb-4 */
-        }
-        h3 {
-            font-size: 1.25rem; /* xl */
-            margin-top: 1rem;
-        }
-
-        /* Paragraphs */
-        p {
-            margin-bottom: 1rem; /* mb-4 or mb-6 */
-        }
-        .intro-p {
-             margin-bottom: 1.5rem; /* mb-6 */
-        }
-
-        /* Lists */
-        ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        ol {
-            list-style-type: decimal;
-            margin-left: 1.5rem;
-            margin-top: 0.5rem; /* mt-2 */
-            margin-bottom: 1rem;
-        }
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Code blocks */
-        code {
-            padding: 0.125rem 0.25rem;
-            border-radius: 0.25rem;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.9em;
-        }
-
-        /* Command Sections */
-        .command-section {
-             padding: 1rem;
-             border-radius: 0.5rem;
-             margin-bottom: 1rem;
-             border-width: 1px;
-        }
-        .command-section h3 {
-            margin-bottom: 0.75rem; /* mb-3 */
-        }
-        .command-section p {
-             margin-top: 0.5rem; /* my-2 */
-             margin-bottom: 0.5rem; /* my-2 */
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            font-size: 0.875rem; /* text-sm */
-            margin-top: 2rem; /* mt-8 */
-            padding-top: 1rem; /* pt-4 */
-            border-top-width: 1px;
-        }
-
-        /* --- Dark Mode Styles --- */
-        body {
-            background-color: #111827; /* bg-gray-900 */
-            color: #d1d5db; /* text-gray-300 */
-        }
-        .container {
-            background-color: #1f2937; /* bg-gray-800 */
-        }
-        h1, h2, h3 {
-             color: #ffffff; /* text-white / text-gray-100 */
-        }
-        h1, h2, footer {
-             border-color: #4b5563; /* border-gray-700 */
-        }
-        p {
-             color: #9ca3af; /* text-gray-400 */
-        }
-        ul, ol, li {
-             color: #d1d5db; /* text-gray-300 */
-        }
-        code {
-            background-color: #374151; /* bg-gray-700 */
-            color: #f3f4f6; /* text-gray-100 */
-        }
-        a {
-            color: #60a5fa; /* text-blue-400 */
-            text-decoration: underline;
-        }
-        a:hover {
-            color: #93c5fd; /* hover:text-blue-300 */
-        }
-        .command-section {
-             background-color: #1f2937; /* bg-gray-800 */
-             border-color: #4b5563; /* border-gray-600 */
-        }
-        .command-section h3 {
-             color: #f3f4f6; /* text-gray-200 */
-        }
-        .command-section p, .command-section ul, .command-section li {
-             color: #d1d5db; /* text-gray-300 */
-        }
-        footer {
-             color: #6b7280; /* text-gray-500 */
-             border-color: #374151; /* border-gray-700 */
-        }
-
-    </style>
+    <title>Torn Modular Bot - README (Dark Mode)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Enable smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Apply Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Add padding-top to sections to offset for fixed header/sticky ToC */
+        section {
+            padding-top: 4rem; /* Adjust as needed based on sticky header height */
+            margin-top: -4rem; /* Negative margin to counteract padding */
+            margin-bottom: 2rem; /* Spacing between sections */
+        }
+        /* Style headings */
+        h2 {
+            /* Dark mode border color */
+            border-bottom: 1px solid #4b5563; /* gray-600 */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        /* Style inline code */
+        code {
+            /* Dark mode code block style */
+            background-color: #374151; /* gray-700 */
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+            color: #d1d5db; /* gray-300 */
+        }
+        /* Style the sticky Table of Contents */
+        .toc {
+            position: sticky;
+            top: 1rem; /* Adjust spacing from top */
+            max-height: calc(100vh - 2rem); /* Limit height */
+            overflow-y: auto; /* Allow scrolling within ToC */
+            border-radius: 0.5rem; /* Rounded corners */
+        }
+        /* Style command list items */
+        .command-item {
+            margin-bottom: 0.75rem;
+            padding-left: 0.5rem;
+            /* Dark mode border color */
+            border-left: 2px solid #6366f1; /* indigo-500 */
+        }
+        .command-item code {
+            font-weight: 600; /* Semibold */
+        }
+        .command-item p {
+            margin-top: 0.25rem;
+            font-size: 0.95em;
+            /* Dark mode paragraph text */
+            color: #9ca3af; /* gray-400 */
+        }
+    </style>
 </head>
-<body> <div class="container"> <h1>Torn Modular Bot - User Guide</h1>
+<body class="bg-gray-900 text-gray-200 p-4 md:p-8">
+    <div class="max-w-6xl mx-auto bg-gray-800 p-6 md:p-10 rounded-lg shadow-lg">
+        <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center text-indigo-400">Torn Modular Bot Documentation</h1>
 
-        <p class="intro-p">This guide explains how to use the Torn Modular Bot and its various features within your Discord server.</p>
+        <div class="md:grid md:grid-cols-4 md:gap-8">
 
-        <section>
-            <h2>For All Users</h2>
-            <p>These commands are available to everyone in the server where the bot is active.</p>
+            <aside class="md:col-span-1 mb-8 md:mb-0">
+                <div class="toc p-4 bg-gray-700 border border-gray-600">
+                    <h2 class="text-xl font-semibold mb-4 text-gray-100">Table of Contents</h2>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#overview" class="text-indigo-400 hover:text-indigo-300 hover:underline font-medium">Overview</a></li>
 
-            <div class="command-section">
-                <h3>1. Adding Your API Key</h3>
-                <p>The bot needs your Torn API key to fetch your data for verification, travel monitoring, and other features. Your key is stored securely (encrypted).</p>
-                <ul>
-                    <li><strong>Command:</strong> <code>/mykey add</code></li>
-                    <li><strong>Action:</strong> Opens a pop-up form (modal) where you can securely paste your 16-character Torn API key.</li>
-                    <li><strong>How to get a key:</strong> Create one on Torn: <a href="https://www.torn.com/preferences.php#tab=api" target="_blank" rel="noopener noreferrer">https://www.torn.com/preferences.php#tab=api</a> (Requires enabling <code>Public status</code>, <code>Profile information</code>, and <code>Faction tree</code> access for full functionality).</li>
-                    <li><strong>Note:</strong> You only need to do this once per server where you use the bot.</li>
-                </ul>
-            </div>
+                        <li><a href="#general" class="text-indigo-400 hover:text-indigo-300 hover:underline font-medium">General Commands</a>
+                            <ul class="ml-4 mt-1 space-y-1">
+                                <li><a href="#help" class="text-gray-300 hover:text-indigo-400 hover:underline">Help</a></li>
+                                <li><a href="#user-api-keys" class="text-gray-300 hover:text-indigo-400 hover:underline">User API Keys</a></li>
+                                <li><a href="#dm-alerts" class="text-gray-300 hover:text-indigo-400 hover:underline">DM Alerts</a></li>
+                                <li><a href="#verification" class="text-gray-300 hover:text-indigo-400 hover:underline">Verification</a></li>
+                                <li><a href="#tornstats-spy-uploader" class="text-gray-300 hover:text-indigo-400 hover:underline">TornStats Spy Uploader</a></li>
+                                <li><a href="#loss-selling" class="text-gray-300 hover:text-indigo-400 hover:underline">Loss Selling</a></li>
+                            </ul>
+                        </li>
 
-            <div class="command-section">
-                <h3>2. Removing Your API Key</h3>
-                <p>If you no longer want the bot to use your key in this specific server:</p>
-                <ul>
-                    <li><strong>Command:</strong> <code>/mykey remove</code></li>
-                    <li><strong>Action:</strong> Removes your stored API key for this server from the bot's database.</li>
-                </ul>
-            </div>
+                        <li><a href="#admin" class="text-red-400 hover:text-red-300 hover:underline font-medium">Admin Commands</a>
+                            <ul class="ml-4 mt-1 space-y-1">
+                                <li><a href="#admin-overview" class="text-gray-300 hover:text-indigo-400 hover:underline">Overview</a></li>
+                                <li><a href="#admin-faction-management" class="text-gray-300 hover:text-indigo-400 hover:underline">Faction Management</a></li>
+                                <li><a href="#admin-player-management" class="text-gray-300 hover:text-indigo-400 hover:underline">Player Management</a></li>
+                                <li><a href="#admin-hospital-tracker" class="text-gray-300 hover:text-indigo-400 hover:underline">Hospital Tracker</a></li>
+                                <li><a href="#admin-oc-monitor" class="text-gray-300 hover:text-indigo-400 hover:underline">OC Monitor</a></li>
+                                <li><a href="#admin-settings" class="text-gray-300 hover:text-indigo-400 hover:underline">Settings</a></li>
+                                <li><a href="#admin-verification" class="text-gray-300 hover:text-indigo-400 hover:underline">Verification (Admin)</a></li>
+                                <li><a href="#admin-loss-selling" class="text-gray-300 hover:text-indigo-400 hover:underline">Loss Selling (Admin)</a></li>
+                                <li><a href="#admin-module-management" class="text-gray-300 hover:text-indigo-400 hover:underline">Module Management (Admin)</a></li>
+                                <li><a href="#admin-tornstats-spy-uploader" class="text-gray-300 hover:text-indigo-400 hover:underline">TornStats Spy Uploader (Admin)</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
 
-            <div class="command-section">
-                <h3>3. Verifying Your Torn Account</h3>
-                <p>Verification links your Discord account to your Torn account within the bot, enabling features like automatic nickname updates and role assignments based on your Torn faction.</p>
-                <ul>
-                    <li><strong>Prerequisite:</strong> Ensure your Discord account is linked on your Torn profile: <a href="https://www.torn.com/discord" target="_blank" rel="noopener noreferrer">https://www.torn.com/discord</a></li>
-                    <li><strong>Command:</strong> <code>/verify</code></li>
-                    <li><strong>Action:</strong> The bot checks the Torn API using your Discord ID to find your linked Torn account. If successful, it updates your verification status in the database and may update your nickname and roles according to server settings.</li>
-                </ul>
-            </div>
+            <main class="md:col-span-3">
+                <section id="overview">
+                    <h2 class="text-2xl font-semibold text-indigo-400">Overview</h2>
+                    <p class="mb-4 text-gray-300 leading-relaxed">
+                        Torn Modular Bot is a comprehensive Discord bot designed to provide various utilities and monitoring features for factions and players within the online game Torn City (<a href="https://www.torn.com" target="_blank" class="text-indigo-400 hover:underline">torn.com</a>).
+                        It leverages the Torn API to track player status, manage faction information, handle payments, verify users, upload spy reports, and more, all within a Discord server environment.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        The bot uses a modular structure (cogs), allowing features to be managed by server administrators. This document outlines the available commands, categorized by their respective modules and user permissions.
+                    </p>
+                </section>
 
-             <div class="command-section">
-                <h3>4. Re-verifying Your Account</h3>
-                <p>If your Torn name, faction, or linked Discord account changes, you might need to re-verify.</p>
-                <ul>
-                    <li><strong>Command:</strong> <code>/reverify</code></li>
-                    <li><strong>Action:</strong> Re-runs the verification check using your Discord ID.</li>
-                </ul>
-            </div>
+                <section id="general">
+                    <h2 class="text-2xl font-semibold text-indigo-400">General User Commands</h2>
+                    <p class="mb-6 text-gray-300">These commands can typically be used by any server member, provided the relevant module is active on the server.</p>
 
-            <div class="command-section">
-                <h3>5. Setting Up DM Travel Alerts</h3>
-                <p>Get Direct Messages when specific monitored players or faction members travel to or arrive from certain countries.</p>
-                <ul>
-                    <li><strong>Command:</strong> <code>/dmalert</code></li>
-                    <li><strong>Action:</strong> Opens an interactive menu:
-                        <ol>
-                            <li><strong>Select Source:</strong> Choose the Faction or individually Monitored Player you want alerts for.</li>
-                            <li><strong>Select Countries:</strong> Choose the specific destination countries you care about, or select "Monitor ALL Countries".</li>
-                            <li><strong>Save/Update:</strong> Saves your preferences for the selected source.</li>
-                            <li><strong>Remove Alert:</strong> Removes the DM alert setting for the currently selected source.</li>
-                            <li><strong>Cancel:</strong> Closes the menu without saving changes.</li>
-                        </ol>
-                    </li>
-                    <li><strong>Note:</strong> You can configure different country settings for each monitored faction or player.</li>
-                </ul>
-            </div>
-        </section>
+                    <section id="help">
+                        <h3 class="text-xl font-semibold text-gray-300">Help Module</h3>
+                        <div class="command-item">
+                            <code>/help</code>
+                            <p>Shows a list of available commands and the how-to guide.</p>
+                        </div>
+                    </section>
 
-        <section>
-            <h2>For Server Administrators (and Bot Owner)</h2>
-            <p>These commands require Administrator permissions in the Discord server (or being the Bot Owner).</p>
+                    <section id="user-api-keys">
+                         <h3 class="text-xl font-semibold text-gray-300">User API Keys Module</h3>
+                        <div class="command-item">
+                            <code>/key add</code>
+                            <p>Add your personal Torn API key.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/key remove</code>
+                            <p>Remove your personal Torn API key.</p>
+                        </div>
+                    </section>
 
-            <div class="command-section">
-                 <h3>Managing Monitored Factions</h3>
-                 <ul>
-                    <li><strong>Add Faction:</strong> <code>/faction add</code> - Opens a pop-up to enter the Torn Faction ID to start monitoring.</li>
-                    <li><strong>Remove Faction:</strong> <code>/faction remove [faction: Faction ID or Name]</code> - Stops monitoring the specified faction and cleans up related settings.</li>
-                    <li><strong>List Factions:</strong> <code>/faction list</code> - Shows all monitored factions and their configured notification settings.</li>
-                    <li><strong>Configure Faction Settings:</strong> <code>/faction settings [faction: Faction ID or Name]</code> - Opens a menu to configure Hospital Notifications, Revive List, Travel Notifications/List, and Hospital List settings (channel/role) for the selected faction.</li>
-                 </ul>
-            </div>
+                    <section id="dm-alerts">
+                         <h3 class="text-xl font-semibold text-gray-300">DM Alerts Module</h3>
+                         <div class="command-item">
+                            <code>/dmalert add</code>
+                            <p>Add a personal DM alert for specific travel events.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/dmalert remove</code>
+                            <p>Remove a personal DM alert.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/dmalert list</code>
+                            <p>List your currently configured personal DM alerts.</p>
+                        </div>
+                    </section>
 
-             <div class="command-section">
-                 <h3>Managing Monitored Players (Individual)</h3>
-                 <ul>
-                    <li><strong>Add Player:</strong> <code>/player add [player_id: Torn Player ID]</code> - Starts monitoring an individual player.</li>
-                    <li><strong>Remove Player:</strong> <code>/player remove [player_id: Torn Player ID]</code> - Stops monitoring an individual player.</li>
-                    <li><strong>List Players:</strong> <code>/player list</code> - Shows all individually monitored players.</li>
-                    <li><strong>Set Player Channel:</strong> <code>/player set_channel [player: Player ID or Name]</code> - Sets a specific notification channel for an individual player (overrides faction settings).</li>
-                 </ul>
-            </div>
+                    <section id="verification">
+                         <h3 class="text-xl font-semibold text-gray-300">Verification Module</h3>
+                         <div class="command-item">
+                            <code>/verify</code>
+                            <p>Start the Torn account verification process.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>Context Menu > Apps > Reverify User</code>
+                            <p>Re-run the verification check for a specific user (available via right-click/tap on user).</p>
+                        </div>
+                    </section>
 
-            <div class="command-section">
-                 <h3>Managing Verification Roles</h3>
-                 <ul>
-                    <li><strong>Add Faction Role:</strong> <code>/factionrole add [faction_id: Torn Faction ID] [role: Discord Role]</code> - Maps a Faction ID to a Discord role for auto-assignment.</li>
-                    <li><strong>Remove Faction Role:</strong> <code>/factionrole remove [faction_id: Faction ID (optional)] [role: Discord Role (optional)]</code> - Removes a mapping (specify ID or Role).</li>
-                    <li><strong>List Faction Roles:</strong> <code>/factionrole list</code> - Shows current Faction ID -> Role mappings.</li>
-                 </ul>
-            </div>
+                    <section id="tornstats-spy-uploader">
+                          <h3 class="text-xl font-semibold text-gray-300">TornStats Spy Uploader Module</h3>
+                         <div class="command-item">
+                            <code>/tornstats key_add</code>
+                            <p>Add your TornStats API key.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/tornstats key_remove</code>
+                            <p>Remove your stored TornStats API key.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/tornstats key_list</code>
+                            <p>Check if you have a TornStats API key stored.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/spy upload</code>
+                            <p>Upload a single spy report to TornStats using manual input.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/spy bulk</code>
+                            <p>Upload multiple spy reports pasted from Torn.</p>
+                        </div>
+                    </section>
 
-            <div class="command-section">
-                 <h3>Managing Global Settings</h3>
-                 <ul>
-                    <li><strong>Toggle Features:</strong>
-                        <ul class="list-disc ml-6 mt-1">
-                            <li><code>/settings toggle_hospital [enabled: True/False]</code></li>
-                            <li><code>/settings toggle_revive_list [enabled: True/False]</code></li>
-                            <li><code>/settings toggle_travel [enabled: True/False]</code></li>
-                        </ul>
-                    </li>
-                    <li><strong>Set Hospital Ping Times:</strong> <code>/settings set_hospital_ping_times</code> - Opens pop-up to set notification times (minutes before exit).</li>
-                    <li><strong>Set Travel Check Interval:</strong> <code>/settings set_travel_interval [interval: Seconds]</code> - Sets API check frequency (min 30s).</li>
-                    <li><strong>Set Travel Message Auto-Delete:</strong> <code>/settings set_travel_message_delay [minutes: 0-60]</code> - Sets delay before travel notifications are deleted (0=disable).</li>
-                    <li><strong>Show All Settings:</strong> <code>/settings show</code> - Displays a summary of global settings.</li>
-                 </ul>
-            </div>
+                    <section id="loss-selling">
+                          <h3 class="text-xl font-semibold text-gray-300">Loss Selling Module</h3>
+                         <div class="command-item">
+                            <code>/contract join</code>
+                            <p>Join an active loss selling contract.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/contract leave</code>
+                            <p>Leave a loss selling contract you have joined.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/contract claim</code>
+                            <p>Claim losses for a contract you are participating in.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/contract balance</code>
+                            <p>Check your claimed/verified losses and potential payout for a contract.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/contract info</code>
+                            <p>Display details about a specific loss selling contract.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/contract list</code>
+                            <p>List active loss selling contracts in this server.</p>
+                        </div>
+                    </section>
+                </section>
 
-            <div class="command-section">
-                 <h3>Admin Verification Tools</h3>
-                 <ul>
-                    <li><strong>Verify All Members:</strong> <code>/verifyall</code> - Checks all server members, verifies linked accounts, updates details, and cleans up stale entries.</li>
-                    <li><strong>Re-verify Member (Context Menu):</strong> Right-click user -> Apps -> Reverify Torn User - Forces a re-check for one user.</li>
-                 </ul>
-            </div>
+                <section id="admin">
+                    <h2 class="text-2xl font-semibold text-red-400">Administrator Commands</h2>
+                    <section id="admin-overview">
+                         <p class="mb-6 text-gray-300">These commands require the user to have <strong>Administrator</strong> permissions on the Discord server, be the <strong>server owner</strong>, or have a role configured via <code>/settings add_admin_role</code>.</p>
+                    </section>
 
-            <div class="command-section">
-                 <h3>Payment Status</h3>
-                 <ul>
-                    <li><strong>Check Status:</strong> <code>/payment status</code> - Shows server subscription status and expiry.</li>
-                    <li><strong>View History:</strong> <code>/payment history</code> - Shows recent payment/override history.</li>
-                 </ul>
-            </div>
-        </section>
+                    <section id="admin-faction-management">
+                          <h3 class="text-xl font-semibold text-gray-300">Faction Management (Admin)</h3>
+                        <div class="command-item">
+                            <code>/faction add</code>
+                            <p>[Admin] Add a faction to monitor.</p>
+                        </div>
+                        <div class="command-item">
+                            <code>/faction remove</code>
+                            <p>[Admin] Remove a faction from monitoring.</p>
+                        </div>
+                        <div class="command-item">
+                            <code>/faction settings</code>
+                            <p>[Admin] Configure notification channels and role pings for a faction.</p>
+                        </div>
+                        <div class="command-item">
+                            <code>/faction list</code>
+                            <p>[Admin] Lists factions monitored in this server.</p>
+                        </div>
+                    </section>
 
-        <footer>
-            If you encounter issues or have questions, please contact the server administrators or the bot owner.
-        </footer>
+                     <section id="admin-player-management">
+                          <h3 class="text-xl font-semibold text-gray-300">Player Management (Admin)</h3>
+                        <div class="command-item">
+                            <code>/player add</code>
+                            <p>[Admin] Add a specific player to monitor.</p>
+                        </div>
+                        <div class="command-item">
+                            <code>/player remove</code>
+                            <p>[Admin] Remove a player from monitoring.</p>
+                        </div>
+                        <div class="command-item">
+                            <code>/player list</code>
+                            <p>[Admin] List players being monitored individually.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/player set_channel</code>
+                            <p>[Admin] Set the notification channel for an individually monitored player.</p>
+                        </div>
+                    </section>
 
+                     <section id="admin-hospital-tracker">
+                          <h3 class="text-xl font-semibold text-gray-300">Hospital Tracker (Admin)</h3>
+                        <div class="command-item">
+                            <code>/hospitaltracker addfaction</code>
+                            <p>Add a faction to monitor for hospital times (Admin Only).</p>
+                        </div>
+                        <div class="command-item">
+                            <code>/hospitaltracker removefaction</code>
+                            <p>Remove a faction from hospital monitoring (Admin Only).</p>
+                        </div>
+                        <div class="command-item">
+                            <code>/hospitaltracker addplayer</code>
+                            <p>Add a specific player to monitor for hospital times (Admin Only).</p>
+                        </div>
+                        <div class="command-item">
+                            <code>/hospitaltracker removeplayer</code>
+                            <p>Remove a player from hospital monitoring (Admin Only).</p>
+                        </div>
+                        <div class="command-item">
+                            <code>/hospitaltracker status</code>
+                            <p>Show current hospital monitoring status.</p>
+                        </div>
+                    </section>
+
+                     <section id="admin-oc-monitor">
+                           <h3 class="text-xl font-semibold text-gray-300">OC Monitor (Admin)</h3>
+                          <div class="command-item">
+                            <code>/ocmonitor setup</code>
+                            <p>Configure the OC Monitor (Admin Only).</p>
+                        </div>
+                          <div class="command-item">
+                            <code>/ocmonitor status</code>
+                            <p>Shows the current OC monitor configuration.</p>
+                        </div>
+                          <div class="command-item">
+                            <code>/ocmonitor disable</code>
+                            <p>Disable the OC Monitor and remove configuration (Admin Only).</p>
+                        </div>
+                    </section>
+
+                     <section id="admin-settings">
+                          <h3 class="text-xl font-semibold text-gray-300">Settings (Admin)</h3>
+                         <div class="command-item">
+                            <code>/settings toggle_hospital</code>
+                            <p>[Admin] Toggle hospital notifications on or off.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/settings toggle_revive</code>
+                            <p>[Admin] Toggle the Revive List feature on or off.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/settings toggle_travel</code>
+                            <p>[Admin] Toggle travel notifications and lists on or off.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/settings set_hospital_pings</code>
+                            <p>[Admin] Set minutes before hospital release to ping.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/settings set_travel_interval</code>
+                            <p>[Admin] Set how often the travel monitor checks for updates (in seconds).</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/settings set_travel_delete_delay</code>
+                            <p>[Admin] Set delay before travel notifications are deleted (minutes). 0 to disable.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/settings add_admin_role</code>
+                            <p>[Admin] Add a role that can use admin commands.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/settings remove_admin_role</code>
+                            <p>[Admin] Remove an admin role.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/settings verification_roles</code>
+                            <p>[Admin] Configure roles for verified/unverified users.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/settings set_contract_category</code>
+                            <p>[Admin] Set the category where loss contract channels are created.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/settings clear_contract_category</code>
+                            <p>[Admin] Clear the loss contract category setting.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/settings set_payment_key</code>
+                            <p>[Admin] Set the Torn API key for tracking loss seller payments.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/settings show</code>
+                            <p>[Admin] Show the current global settings for this server.</p>
+                        </div>
+                    </section>
+
+                     <section id="admin-verification">
+                          <h3 class="text-xl font-semibold text-gray-300">Verification (Admin)</h3>
+                          <div class="command-item">
+                            <code>/verifyall</code>
+                            <p>[Admin] Re-check verification status for all members in the server.</p>
+                        </div>
+                          <div class="command-item">
+                            <code>/factionrole add</code>
+                            <p>[Admin] Map a Torn Faction ID to a Discord Role.</p>
+                        </div>
+                          <div class="command-item">
+                            <code>/factionrole remove</code>
+                            <p>[Admin] Remove a Faction-to-Role mapping.</p>
+                        </div>
+                          <div class="command-item">
+                            <code>/factionrole list</code>
+                            <p>[Admin] List current Faction-to-Role mappings.</p>
+                        </div>
+                    </section>
+
+                     <section id="admin-loss-selling">
+                          <h3 class="text-xl font-semibold text-gray-300">Loss Selling (Admin)</h3>
+                         <div class="command-item">
+                            <code>/contract create</code>
+                            <p>ADMIN: Create a new loss selling contract.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/contract cancel</code>
+                            <p>ADMIN: Cancel an active loss selling contract.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/contract verify</code>
+                            <p>ADMIN: Manually verify claimed losses for a participant.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/contract payout_check</code>
+                            <p>ADMIN: Check total amount owed to sellers across contracts.</p>
+                        </div>
+                         <div class="command-item">
+                            <code>/contract set_rate</code>
+                            <p>ADMIN: Update the pay rate for an active contract.</p>
+                        </div>
+                    </section>
+
+                     <section id="admin-module-management">
+                          <h3 class="text-xl font-semibold text-gray-300">Module Management (Admin)</h3>
+                         <div class="command-item">
+                            <code>/module list</code>
+                            <p>List available modules and their status.</p>
+                        </div>
+                    </section>
+
+                    <section id="admin-tornstats-spy-uploader">
+                          <h3 class="text-xl font-semibold text-gray-300">TornStats Spy Uploader (Admin)</h3>
+                         <div class="command-item">
+                            <code>/spy purge</code>
+                            <p>[Admin] Purge old spy reports from the bot's database.</p>
+                        </div>
+                    </section>
+                </section>
+            </main>
+        </div>
     </div>
 </body>
 </html>
